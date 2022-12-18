@@ -8,7 +8,9 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.renancorredato.aplicativodetarefasafazer.databinding.ResItemTaskBinding
 
-class TaskAdapter : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
+class TaskAdapter(
+    private val onDeleteClick: (Task) -> Unit
+) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
     private val tasks = mutableListOf<Task>()
 
@@ -26,8 +28,14 @@ class TaskAdapter : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
             clTask = itemView.clTask
         }
 
-        fun bind(task: Task) {
+        fun bind(
+            task: Task,
+            onDeleteClick: (Task) -> Unit
+        ) {
             tvTitleTask.text = task.title
+            imgBtnDeleteTask.setOnClickListener {
+                onDeleteClick(task)
+            }
         }
     }
 
@@ -42,7 +50,8 @@ class TaskAdapter : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         holder.bind(
-            tasks[position]
+            tasks[position],
+            onDeleteClick
         )
     }
 
