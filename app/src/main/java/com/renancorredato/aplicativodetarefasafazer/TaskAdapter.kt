@@ -61,4 +61,10 @@ class TaskAdapter(
         tasks.add(task)
         notifyItemInserted(tasks.size - 1)
     }
+
+    fun deleteTask(task: Task){
+        val deletePosition = tasks.indexOf(task)
+        tasks.remove(task)
+        notifyItemRemoved(deletePosition)
+    }
 }

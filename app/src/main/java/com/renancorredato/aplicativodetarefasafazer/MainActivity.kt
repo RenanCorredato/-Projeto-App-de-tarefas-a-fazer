@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
     private fun setupAdapter() {
 
         adapter = TaskAdapter { task ->
-            Toast.makeText(this, "Deleta task${task.title}",Toast.LENGTH_SHORT).show()
+            adapter.deleteTask(task)
         }
         binding.rvTasks.adapter = adapter
     }
