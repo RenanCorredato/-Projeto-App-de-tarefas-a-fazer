@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Aplicativo de tarefas a fazer</string>
+    <string name="app_name">Lista De Tarefas</string>
+    <string name="new_task">Nova tarefa</string>
 </resources>

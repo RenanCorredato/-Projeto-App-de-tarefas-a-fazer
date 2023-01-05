@@ -104,4 +104,6 @@ class TaskAdapter(
         tasks[updatedPosition] = task
         notifyItemRemoved(updatedPosition)
     }
+
+    fun isEmpty(): Boolean = tasks.isEmpty()
 }
